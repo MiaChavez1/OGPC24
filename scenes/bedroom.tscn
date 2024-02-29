@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlduu41tovghp"]
+
+[ext_resource type="PackedScene" uid="uid://dtaw7itrwnc6x" path="res://ben.tscn" id="1_5kgy0"]
+[ext_resource type="Script" path="res://scenes/bedroom.gd" id="1_x2olt"]
+[ext_resource type="PackedScene" uid="uid://c2c43lta2a3ll" path="res://pause_menu.tscn" id="2_p3sqa"]
+[ext_resource type="PackedScene" uid="uid://d3sfqwsvo7etk" path="res://inventory.tscn" id="2_vmx3m"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_x2olt")
+
+[node name="inventory" parent="." instance=ExtResource("2_vmx3m")]
+visible = false
+position = Vector2(350, 312)
+scale = Vector2(2, 2)
+
+[node name="Ben" parent="." instance=ExtResource("1_5kgy0")]
+
+[node name="pauseMenu" parent="." instance=ExtResource("2_p3sqa")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1269.0
+offset_top = 773.0
+offset_right = 1269.0
+offset_bottom = 773.0
+scale = Vector2(6, 6)

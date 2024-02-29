@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtaw7itrwnc6x"]
+
+[ext_resource type="Script" path="res://ben.gd" id="1_eh4f4"]
+[ext_resource type="Texture2D" uid="uid://d32smw3mskl4j" path="res://sprites/benPlaceholder.png" id="1_w7fb6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_macnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w7fb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggyrn"]
+size = Vector2(165, 228)
+
+[node name="Ben" type="CharacterBody2D"]
+script = ExtResource("1_eh4f4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(94, 123)
+scale = Vector2(0.493421, 0.482222)
+sprite_frames = SubResource("SpriteFrames_macnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(94.5, 120)
+shape = SubResource("RectangleShape2D_ggyrn")
