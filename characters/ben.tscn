@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtaw7itrwnc6x"]
 
-[ext_resource type="Script" path="res://ben.gd" id="1_eh4f4"]
+[ext_resource type="Script" path="res://characters/ben.gd" id="1_eh4f4"]
 [ext_resource type="Texture2D" uid="uid://d32smw3mskl4j" path="res://sprites/benPlaceholder.png" id="1_w7fb6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_macnt"]

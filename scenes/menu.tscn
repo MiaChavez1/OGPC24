@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5i858weaxwqq"]
+[gd_scene load_steps=3 format=3 uid="uid://c5i858weaxwqq"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_25tqf"]
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_muvml"]
+[ext_resource type="Texture2D" uid="uid://c2oxyhejqg0t7" path="res://scenes/homeScreen.png" id="2_iemq6"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -11,16 +12,26 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_25tqf")
+script = ExtResource("1_muvml")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_iemq6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = -1
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -50.5
-offset_right = 174.0
-offset_bottom = 50.5
+offset_left = 50.0
+offset_top = 276.0
+offset_right = 239.0
+offset_bottom = 412.0
 grow_vertical = 2
 scale = Vector2(4, 4)
 
