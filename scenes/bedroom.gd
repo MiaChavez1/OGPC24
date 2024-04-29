@@ -9,15 +9,13 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pause()
 	if Input.is_action_just_pressed("inventory"):
 		inventoryOpen()
-		
+	
 func pause():
 	if paused:
 		pauseMenu.hide()
@@ -34,3 +32,13 @@ func inventoryOpen():
 	else:
 		inventory.show()
 	open = !open
+
+
+
+func _on_door_body_entered(body):
+	get_tree().change_scene_to_file("res://scenes/main_clock.tscn")
+
+
+
+func _on_broom_body_entered(body):
+	get_tree().change_scene_to_file("res://minigames/sweeping.tscn")

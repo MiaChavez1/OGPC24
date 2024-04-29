@@ -1,25 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://crycv4u8ohmdr"]
+[gd_scene load_steps=5 format=3 uid="uid://crycv4u8ohmdr"]
 
 [ext_resource type="Script" path="res://timers/ProgressBar.gd" id="1_2je8d"]
-[ext_resource type="Texture2D" uid="uid://m1kaeolik33c" path="res://sprites/progressBarBH2.png" id="2_4noor"]
+[ext_resource type="Texture2D" uid="uid://i8sh1t5q34gl" path="res://sprites/ProgressBarFull.png" id="2_bq0wm"]
+[ext_resource type="Texture2D" uid="uid://ct8xt1dyxbtsa" path="res://sprites/ProgressBar.png" id="3_els6i"]
+[ext_resource type="Texture2D" uid="uid://chfsw2oyexmed" path="res://sprites/ProgressBarEmpty.png" id="3_j7aix"]
 
 [node name="ProgressBar" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_2je8d")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = -5.0
-offset_top = -407.0
-offset_right = 3835.0
-offset_bottom = 1753.0
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+offset_right = 1571.0
+offset_bottom = 482.0
 scale = Vector2(0.5, 0.5)
-value = 30.0
-texture_progress = ExtResource("2_4noor")
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("2_bq0wm")
+
+[node name="TextureRect2" type="TextureRect" parent="AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("3_j7aix")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="AspectRatioContainer"]
+layout_mode = 2
+texture_progress = ExtResource("3_els6i")

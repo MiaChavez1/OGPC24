@@ -1,0 +1,110 @@
+[gd_scene load_steps=24 format=3 uid="uid://cyj8eq7kxc17o"]
+
+[ext_resource type="Script" path="res://scenes/intro.gd" id="1_l1nwm"]
+[ext_resource type="Texture2D" uid="uid://dr1r03y0v432e" path="res://Intro Slideshow/1.PNG" id="2_n8bjn"]
+[ext_resource type="Texture2D" uid="uid://cxpj2k73a8pp" path="res://Intro Slideshow/2.PNG" id="3_78kct"]
+[ext_resource type="Texture2D" uid="uid://crxu2ixw5ldu2" path="res://Intro Slideshow/3.PNG" id="4_yqnqu"]
+[ext_resource type="Texture2D" uid="uid://q8t7l2q7bm2i" path="res://Intro Slideshow/4.PNG" id="5_yd7p5"]
+[ext_resource type="Texture2D" uid="uid://cql4bikhsod5r" path="res://Intro Slideshow/5.PNG" id="6_odits"]
+[ext_resource type="Texture2D" uid="uid://d4n3eho2tfqf" path="res://Intro Slideshow/6.PNG" id="7_3hgpw"]
+[ext_resource type="Texture2D" uid="uid://dxiy5fupw7p04" path="res://Intro Slideshow/7.PNG" id="8_ahs5t"]
+[ext_resource type="Texture2D" uid="uid://bcl7ju4i8uex4" path="res://Intro Slideshow/8.PNG" id="9_wuphe"]
+[ext_resource type="Texture2D" uid="uid://caokfagvr57ir" path="res://Intro Slideshow/9.PNG" id="10_5jehs"]
+[ext_resource type="Texture2D" uid="uid://cm05rde081kb2" path="res://Intro Slideshow/10.PNG" id="11_8v2th"]
+[ext_resource type="Texture2D" uid="uid://bcjeiis3l1wmy" path="res://Intro Slideshow/11.PNG" id="12_jrgld"]
+[ext_resource type="Texture2D" uid="uid://825ybbqhmgxx" path="res://Intro Slideshow/12.PNG" id="13_w723r"]
+[ext_resource type="Texture2D" uid="uid://laa6m0yrofqa" path="res://Intro Slideshow/13.PNG" id="14_ptec8"]
+[ext_resource type="Texture2D" uid="uid://cllv3ndijm460" path="res://Intro Slideshow/14.PNG" id="15_eqrni"]
+[ext_resource type="Texture2D" uid="uid://bqbxccj3kbyb2" path="res://Intro Slideshow/15.PNG" id="16_rgm1v"]
+[ext_resource type="Texture2D" uid="uid://cj8pgvthbet8l" path="res://Intro Slideshow/16.PNG" id="17_p6q7e"]
+[ext_resource type="Texture2D" uid="uid://boqfx0y4uojr8" path="res://Intro Slideshow/17.PNG" id="18_n1qrq"]
+[ext_resource type="Texture2D" uid="uid://blmd4hxb2v1ee" path="res://Intro Slideshow/18.PNG" id="19_qp71k"]
+[ext_resource type="Texture2D" uid="uid://psos0kwc2btq" path="res://Intro Slideshow/19.PNG" id="20_7o47e"]
+[ext_resource type="Texture2D" uid="uid://ddwvi26l1hpgp" path="res://Intro Slideshow/20.PNG" id="21_3lypd"]
+[ext_resource type="Texture2D" uid="uid://cc07616m7e01k" path="res://Intro Slideshow/21.PNG" id="22_spwme"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sw2wu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n8bjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_78kct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yqnqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yd7p5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_odits")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3hgpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ahs5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wuphe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5jehs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8v2th")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jrgld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_w723r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ptec8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_eqrni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rgm1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_p6q7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_n1qrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_qp71k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7o47e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3lypd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_spwme")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_l1nwm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(600, 325)
+sprite_frames = SubResource("SpriteFrames_sw2wu")
+frame_progress = 0.206
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

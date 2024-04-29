@@ -13,7 +13,7 @@ func _process(delta):
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://scenes/bedroom.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro.tscn")
 
 
 func _on_instuctions_pressed():
@@ -21,4 +21,4 @@ func _on_instuctions_pressed():
 
 
 func _on_options_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")

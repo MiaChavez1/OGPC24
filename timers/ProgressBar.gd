@@ -8,9 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-
-
-func _on_mouse_entered():
-	$TextureProgressBar.value=100
+	$AspectRatioContainer/TextureProgressBar.value=DayTimer.progress

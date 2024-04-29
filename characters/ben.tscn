@@ -1,30 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtaw7itrwnc6x"]
+[gd_scene load_steps=10 format=3 uid="uid://dtaw7itrwnc6x"]
 
 [ext_resource type="Script" path="res://characters/ben.gd" id="1_eh4f4"]
-[ext_resource type="Texture2D" uid="uid://d32smw3mskl4j" path="res://sprites/benPlaceholder.png" id="1_w7fb6"]
+[ext_resource type="Texture2D" uid="uid://v6w0yh0wy1pk" path="res://sprites/IMG_1929.PNG" id="2_yumi2"]
+[ext_resource type="Texture2D" uid="uid://iya17ebfb885" path="res://sprites/IMG_1930.PNG" id="3_8ma7k"]
+[ext_resource type="Texture2D" uid="uid://dhr6830wmefb6" path="res://sprites/IMG_0500.PNG" id="3_s74x8"]
+[ext_resource type="Texture2D" uid="uid://dnyohcgbk0j2" path="res://sprites/IMG_1931.PNG" id="4_ux61v"]
+[ext_resource type="Texture2D" uid="uid://c67nhr1x8fbra" path="res://sprites/IMG_1932.PNG" id="5_6gees"]
+[ext_resource type="Texture2D" uid="uid://bt5v32ualw8pc" path="res://sprites/IMG_1933.PNG" id="6_mdset"]
+[ext_resource type="Texture2D" uid="uid://3kx657g77r7c" path="res://sprites/IMG_1934.PNG" id="7_fj1c8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_macnt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_w7fb6")
+"texture": ExtResource("2_yumi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8ma7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ux61v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6gees")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mdset")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fj1c8")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggyrn"]
-size = Vector2(165, 228)
-
 [node name="Ben" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_eh4f4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(94, 123)
-scale = Vector2(0.493421, 0.482222)
+position = Vector2(69, 125)
 sprite_frames = SubResource("SpriteFrames_macnt")
+frame_progress = 0.00701681
+flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(94.5, 120)
-shape = SubResource("RectangleShape2D_ggyrn")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-87, -368)
+scale = Vector2(0.662731, 0.600617)
+texture = ExtResource("3_s74x8")
+offset = Vector2(450, 2.08165e-12)
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(90, 13)
+polygon = PackedVector2Array(-131, 961, 267, 961, 370, 849, 376, 650, 416, 265, 284, -64, 395, -152, 408, -244, 332, -274, 330, -333, 301, -413, 303, -537, 269, -547, 158, -516, 153, -640, 0, -545, -91, -430, -129, -354, -192, -337, -156, -242, -181, -215, -145, -125, -91, -13, -246, 288, -288, 446, -352, 542, -429, 538, -503, 568, -410, 698, -291, 742, -179, 751, -196, 862)
