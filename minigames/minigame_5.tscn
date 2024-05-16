@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://v4hb428msa6k"]
+
+[ext_resource type="Script" path="res://minigames/minigame5.gd" id="1_tovg5"]
+[ext_resource type="Texture2D" uid="uid://bb1filkuy42mt" path="res://sprites/1Plain piano.PNG" id="2_esuag"]
+
+[node name="minigame5" type="Node2D"]
+script = ExtResource("1_tovg5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(600, 324)
+scale = Vector2(0.274286, 0.284835)
+texture = ExtResource("2_esuag")
+
+[node name="key1" type="Button" parent="."]
+offset_left = 164.0
+offset_right = 316.0
+offset_bottom = 648.0
+text = "1"
+
+[node name="key2" type="Button" parent="."]
+offset_left = 763.0
+offset_right = 909.0
+offset_bottom = 648.0
+text = "2"
+
+[node name="key3" type="Button" parent="."]
+offset_left = 1057.0
+offset_right = 1200.0
+offset_bottom = 648.0
+text = "3"
+
+[node name="key4" type="Button" parent="."]
+offset_left = 316.0
+offset_right = 465.0
+offset_bottom = 648.0
+text = "4"
+
+[node name="key5" type="Button" parent="."]
+offset_left = 465.0
+offset_right = 614.0
+offset_bottom = 648.0
+
+[node name="key6" type="Button" parent="."]
+offset_right = 164.0
+offset_bottom = 648.0
+
+[node name="key7" type="Button" parent="."]
+offset_left = 909.0
+offset_right = 1057.0
+offset_bottom = 648.0
+
+[node name="key8" type="Button" parent="."]
+offset_left = 614.0
+offset_right = 763.0
+offset_bottom = 648.0
+
+[connection signal="pressed" from="key1" to="." method="_on_key_1_pressed"]
+[connection signal="pressed" from="key2" to="." method="_on_key_2_pressed"]
+[connection signal="pressed" from="key3" to="." method="_on_key_3_pressed"]
+[connection signal="pressed" from="key4" to="." method="_on_key_4_pressed"]
