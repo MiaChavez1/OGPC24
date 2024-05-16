@@ -21,12 +21,18 @@ DayTimer="*res://day_timer.gd"
 
 [display]
 
+<<<<<<< Updated upstream
 window/size/viewport_width=1200
 window/stretch/mode="canvas_items"
 
 [gui]
 
 theme/custom_font="res://fox-game-font.ttf"
+=======
+window/size/mode=3
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+>>>>>>> Stashed changes
 
 [input]
 

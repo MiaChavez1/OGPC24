@@ -3,7 +3,10 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+<<<<<<< Updated upstream
 	
+=======
+>>>>>>> Stashed changes
 	if DayTimer.time == 0:
 		transition()
 	else:

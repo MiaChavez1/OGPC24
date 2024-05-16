@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d26hvi7f2r18a"]
+
+[ext_resource type="Texture2D" uid="uid://cl7ns6yhs8ux1" path="res://icon.svg" id="1_dkdwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiuvt"]
+size = Vector2(21, 57)
+
+[node name="cabel" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_hiuvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(0.195312, 0.453125)
+texture = ExtResource("1_dkdwn")

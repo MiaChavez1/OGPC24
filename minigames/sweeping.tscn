@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgoyi5t2v1ljk"]
+
+[ext_resource type="Script" path="res://minigames/sweeping.gd" id="1_kj3tw"]
+[ext_resource type="PackedScene" uid="uid://c5fso4b8gjqv8" path="res://dust_particles.tscn" id="2_fvobr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_21am5"]
+radius = 104.58
+
+[node name="Sweeping" type="Node2D"]
+script = ExtResource("1_kj3tw")
+
+[node name="dust1" type="Area2D" parent="."]
+
+[node name="dustParticles" parent="dust1" instance=ExtResource("2_fvobr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dust1"]
+position = Vector2(12, 52)
+shape = SubResource("CircleShape2D_21am5")
+
+[node name="Button" type="Button" parent="dust1"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -73.0
+offset_top = -19.0
+offset_right = 109.0
+offset_bottom = 121.0
+
+[node name="dust2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dust2"]
+position = Vector2(12, 52)
+shape = SubResource("CircleShape2D_21am5")
+
+[node name="dustParticles" parent="dust2" instance=ExtResource("2_fvobr")]
+
+[node name="Button2" type="Button" parent="dust2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -73.0
+offset_top = -19.0
+offset_right = 109.0
+offset_bottom = 121.0
+
+[node name="dust3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dust3"]
+position = Vector2(12, 52)
+shape = SubResource("CircleShape2D_21am5")
+
+[node name="dustParticles" parent="dust3" instance=ExtResource("2_fvobr")]
+
+[node name="Button3" type="Button" parent="dust3"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -73.0
+offset_top = -19.0
+offset_right = 109.0
+offset_bottom = 121.0
+
+[node name="dust4" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dust4"]
+position = Vector2(12, 52)
+shape = SubResource("CircleShape2D_21am5")
+
+[node name="dustParticles" parent="dust4" instance=ExtResource("2_fvobr")]
+
+[node name="Button4" type="Button" parent="dust4"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -73.0
+offset_top = -19.0
+offset_right = 109.0
+offset_bottom = 121.0
+
+[node name="dust5" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dust5"]
+position = Vector2(12, 52)
+shape = SubResource("CircleShape2D_21am5")
+
+[node name="dustParticles" parent="dust5" instance=ExtResource("2_fvobr")]
+
+[node name="Button5" type="Button" parent="dust5"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -73.0
+offset_top = -19.0
+offset_right = 109.0
+offset_bottom = 121.0
+
+[node name="dust6" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dust6"]
+position = Vector2(12, 52)
+shape = SubResource("CircleShape2D_21am5")
+
+[node name="dustParticles" parent="dust6" instance=ExtResource("2_fvobr")]
+
+[node name="Button6" type="Button" parent="dust6"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -73.0
+offset_top = -19.0
+offset_right = 109.0
+offset_bottom = 121.0
+
+[connection signal="button_down" from="dust1/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="dust2/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="dust3/Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_down" from="dust4/Button4" to="." method="_on_button_4_button_down"]
+[connection signal="button_down" from="dust5/Button5" to="." method="_on_button_5_button_down"]
+[connection signal="button_down" from="dust6/Button6" to="." method="_on_button_6_button_down"]

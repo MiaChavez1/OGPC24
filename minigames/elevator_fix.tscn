@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=3 uid="uid://csfkkddrpbwvu"]
+
+[ext_resource type="Texture2D" uid="uid://cl7ns6yhs8ux1" path="res://icon.svg" id="1_atoct"]
+[ext_resource type="Script" path="res://minigames/elevator_fix.gd" id="1_rd564"]
+[ext_resource type="PackedScene" uid="uid://d26hvi7f2r18a" path="res://minigames/cabel.tscn" id="2_82uu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywqv"]
+size = Vector2(127.5, 126.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5iy5"]
+size = Vector2(128, 126)
+
+[node name="elevatorFix" type="Node2D"]
+script = ExtResource("1_rd564")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-38, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_atoct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.25, -0.25)
+shape = SubResource("RectangleShape2D_0ywqv")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(38, 256)
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../cabel")
+
+[node name="cabel" parent="." instance=ExtResource("2_82uu6")]
+position = Vector2(37, 286)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(37, 317)
+node_a = NodePath("../cabel")
+node_b = NodePath("../cabel2")
+
+[node name="cabel2" parent="." instance=ExtResource("2_82uu6")]
+position = Vector2(37, 345)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(37, 374)
+node_a = NodePath("../cabel2")
+node_b = NodePath("../cabel3")
+
+[node name="cabel3" parent="." instance=ExtResource("2_82uu6")]
+position = Vector2(37, 403)
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(38, 431)
+node_a = NodePath("../cabel3")
+node_b = NodePath("../cabel4")
+
+[node name="cabel4" parent="." instance=ExtResource("2_82uu6")]
+position = Vector2(37, 461)
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(37, 490)
+node_a = NodePath("../cabel4")
+node_b = NodePath("../cabel5")
+
+[node name="cabel5" parent="." instance=ExtResource("2_82uu6")]
+position = Vector2(37, 519)
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="."]
+position = Vector2(36, 549)
+node_a = NodePath("../cabel5")
+node_b = NodePath("../cabel6")
+
+[node name="cabel6" parent="." instance=ExtResource("2_82uu6")]
+position = Vector2(37, 577)
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="."]
+position = Vector2(38, 606)
+node_a = NodePath("../cabel6")
+node_b = NodePath("../cabel7")
+
+[node name="cabel7" parent="." instance=ExtResource("2_82uu6")]
+position = Vector2(37, 634)
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="."]
+position = Vector2(38, 663)
+node_a = NodePath("../cabel7")
+node_b = NodePath("../cabel8")
+
+[node name="cabel8" parent="." instance=ExtResource("2_82uu6")]
+position = Vector2(37, 692)
+
+[node name="end" type="CharacterBody2D" parent="."]
+position = Vector2(400, 610)
+
+[node name="Sprite2D" type="Sprite2D" parent="end"]
+texture = ExtResource("1_atoct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(0, -2.08165e-12)
+shape = SubResource("RectangleShape2D_g5iy5")
+
+[node name="Button" type="Button" parent="end"]
+offset_left = -67.0
+offset_top = -64.0
+offset_right = 65.0
+offset_bottom = 59.0
+
+[node name="plug" type="Area2D" parent="."]
+position = Vector2(600, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="plug"]
+texture = ExtResource("1_atoct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plug"]
+position = Vector2(0.25, -0.25)
+shape = SubResource("RectangleShape2D_0ywqv")
+
+[connection signal="mouse_entered" from="end" to="." method="_on_end_mouse_entered"]
+[connection signal="mouse_exited" from="end" to="." method="_on_end_mouse_exited"]
+[connection signal="button_down" from="end/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="end/Button" to="." method="_on_button_button_up"]
+[connection signal="body_entered" from="plug" to="." method="_on_area_2d_body_entered"]

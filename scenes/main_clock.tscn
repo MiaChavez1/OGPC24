@@ -13,10 +13,17 @@
 script = ExtResource("1_0g1kd")
 
 [node name="Ben" parent="." instance=ExtResource("1_wf3dw")]
+<<<<<<< Updated upstream
 scale = Vector2(0.2, 0.2)
 
 [node name="ClockTimer" parent="." instance=ExtResource("2_wmu24")]
 position = Vector2(1057, 102)
+=======
+
+[node name="ClockTimer" parent="." instance=ExtResource("2_wmu24")]
+position = Vector2(2618, 175)
+scale = Vector2(0.2, 0.2)
+>>>>>>> Stashed changes
 
 [node name="pauseMenu" parent="." instance=ExtResource("3_yg1eu")]
 visible = false
@@ -30,7 +37,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ProgressBar" parent="." instance=ExtResource("4_3jghg")]
+<<<<<<< Updated upstream
 scale = Vector2(0.5, 0.5)
+=======
+>>>>>>> Stashed changes
 
 [node name="inventory" parent="." instance=ExtResource("5_5in5t")]
 visible = false
@@ -38,11 +48,17 @@ position = Vector2(350, 312)
 scale = Vector2(2, 2)
 
 [node name="NewDayTransition" parent="." instance=ExtResource("6_3m6ed")]
+<<<<<<< Updated upstream
 visible = false
 
 [node name="hat" type="Area2D" parent="."]
 position = Vector2(625, 501)
 scale = Vector2(0.4, 0.4)
+=======
+
+[node name="hat" type="Area2D" parent="."]
+position = Vector2(2000, 1000)
+>>>>>>> Stashed changes
 
 [node name="Sprite2D" type="Sprite2D" parent="hat"]
 scale = Vector2(0.663, 0.663)
