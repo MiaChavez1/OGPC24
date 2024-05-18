@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfu3ywkbw7tm3"]
+
+[ext_resource type="AudioStream" uid="uid://pqdiqlp3yuxt" path="res://music/countryboy.mp3" id="1_rptam"]
+[ext_resource type="Script" path="res://music/background_music.gd" id="2_mtdf3"]
+[ext_resource type="AudioStream" uid="uid://c0ilupknyvlu2" path="res://music/deepblue.mp3" id="3_oy48u"]
+[ext_resource type="AudioStream" uid="uid://dym63205l25we" path="res://music/memories.mp3" id="3_qfy7h"]
+[ext_resource type="AudioStream" uid="uid://b41n6bua4igvs" path="res://music/aeon.mp3" id="5_gwqlr"]
+[ext_resource type="AudioStream" uid="uid://cjitcnslrek4y" path="res://music/adaytoremember.mp3" id="6_05mt6"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2_mtdf3")
+
+[node name="cowboy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_rptam")
+bus = &"music"
+
+[node name="crystal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oy48u")
+
+[node name="bedroom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qfy7h")
+bus = &"music"
+
+[node name="intro" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gwqlr")
+bus = &"music"
+
+[node name="default" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_05mt6")
+bus = &"music"

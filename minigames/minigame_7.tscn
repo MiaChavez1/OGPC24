@@ -1,26 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://cylupyk0vflj2"]
+[gd_scene load_steps=5 format=3 uid="uid://cylupyk0vflj2"]
 
 [ext_resource type="Script" path="res://minigames/minigame_7.gd" id="1_8c08c"]
-[ext_resource type="Texture2D" uid="uid://cl7ns6yhs8ux1" path="res://icon.svg" id="2_v8dh0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_83tms"]
-size = Vector2(123, 125)
+[ext_resource type="PackedScene" uid="uid://dd0k06qxa6bxs" path="res://minigames/pipe.tscn" id="2_7fvpo"]
+[ext_resource type="PackedScene" uid="uid://ddxsq0ilqj24b" path="res://minigames/bed_head.tscn" id="2_fals7"]
+[ext_resource type="PackedScene" uid="uid://cv7yge0fxqh2n" path="res://minigames/ground.tscn" id="4_s0ppv"]
 
 [node name="minigame7" type="Node2D"]
 script = ExtResource("1_8c08c")
+pipe_scene = ExtResource("2_7fvpo")
 
-[node name="player" type="CharacterBody2D" parent="."]
-motion_mode = 1
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1245.0
+offset_bottom = 680.0
+color = Color(0.564706, 0.317647, 0.54902, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="player"]
-texture = ExtResource("2_v8dh0")
+[node name="bedHead" parent="." instance=ExtResource("2_fals7")]
+scale = Vector2(1.1, 1.1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(-0.5, -1.5)
-shape = SubResource("RectangleShape2D_83tms")
+[node name="Ground" parent="." instance=ExtResource("4_s0ppv")]
+z_index = 1
+position = Vector2(0, 102)
 
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_right = 1206.0
-offset_bottom = 646.0
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

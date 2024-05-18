@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dat2u00x57fvm"]
+[gd_scene load_steps=12 format=3 uid="uid://dat2u00x57fvm"]
 
 [ext_resource type="Script" path="res://scenes/crystal_room.gd" id="1_iejj8"]
 [ext_resource type="Texture2D" uid="uid://cky7lf7txge7q" path="res://scenes/Crystal_Floor_-_Layout.png" id="2_5ic37"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://boncph2tspg8h" path="res://scenes/new_day_transition.tscn" id="7_mgqsj"]
 [ext_resource type="Texture2D" uid="uid://blthrj8qx5trs" path="res://sprites/Elevator.png" id="8_05ix8"]
 [ext_resource type="Texture2D" uid="uid://h2yv40bbu2fe" path="res://sprites/Crystal1_Dirty.png" id="9_as1ye"]
+[ext_resource type="PackedScene" uid="uid://ca35owkrgucnu" path="res://dialogue/dialogue_player_crystal.tscn" id="10_pxplp"]
 [ext_resource type="PackedScene" uid="uid://crycv4u8ohmdr" path="res://timers/progress_bar.tscn" id="10_t0fx6"]
 
 [node name="crystalRoom" type="Node2D"]
@@ -38,9 +39,6 @@ position = Vector2(1057, 102)
 visible = false
 position = Vector2(350, 312)
 scale = Vector2(2, 2)
-
-[node name="NewDayTransition" parent="." instance=ExtResource("7_mgqsj")]
-visible = false
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 offset_right = 4375.0
@@ -92,4 +90,19 @@ scale = Vector2(6, 6)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="inventory2" parent="." instance=ExtResource("6_x63gq")]
+visible = false
+position = Vector2(350, 312)
+scale = Vector2(2, 2)
+
+[node name="crystals" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="crystals"]
+polygon = PackedVector2Array(681, 648, 648, 605, 656, 583, 680, 580, 707, 614, 688, 529, 719, 498, 761, 512, 777, 583, 790, 528, 818, 520, 841, 539, 821, 648)
+
+[node name="DialoguePlayerCrystal" parent="." instance=ExtResource("10_pxplp")]
+
+[node name="NewDayTransition" parent="." instance=ExtResource("7_mgqsj")]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="crystals" to="." method="_on_crystals_body_entered"]

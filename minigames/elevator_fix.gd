@@ -1,46 +1,74 @@
 extends Node2D
 
-var draggingDistance
-var dir
-var dragging = false
-var newPosition= Vector2()
 
-var mouseIn = false
+var draggingSquare = false
+var draggingTriangle = false
+
+var mouseInSquare = false
+var mouseInTriangle = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var boxRandom = RandomNumberGenerator.new().randi_range(0, 3) 
+	
+	if boxRandom == 0:
+		$box.texture = load("res://sprites/IMG_2083.PNG")
+		$square.position = Vector2(790,180)
+		$triangle.position = Vector2(410,480)
+	elif boxRandom == 1:
+		$box.texture = load("res://sprites/IMG_2084.PNG")
+		$square.position = Vector2(790,480)
+		$triangle.position = Vector2(410,180)
+	elif boxRandom == 2:
+		$box.texture = load("res://sprites/IMG_2085.PNG")
+		$square.position = Vector2(410,480)
+		$triangle.position = Vector2(790,180)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
-	if mouseIn:
-		dragging = true
+	
+	if mouseInSquare:
+		draggingSquare = true
 	else:
-		dragging = false
+		draggingSquare = false
 	
-	var distance = ($end.position.x- $PinJoint2D.position.x) **2 + ($end.position.y- $PinJoint2D.position.y) **2
-	
-	if sqrt(distance) >= 360:
-		dragging =false
-		$end.position.x-=30
-		
+	if mouseInTriangle:
+		draggingTriangle = true
+	else:
+		draggingTriangle = false
 		
 
 func _physics_process(delta):
-	if dragging:
-		$end.position=get_global_mouse_position()
-		$end.move_and_slide()
-
+	
+	if draggingSquare:
+		$square2.position=get_global_mouse_position()
+		$square2.move_and_slide()
+	if draggingTriangle:
+		$triangle2.position=get_global_mouse_position()
+		$triangle2.move_and_slide()
 
 func _on_button_button_down():
-	mouseIn = true
+	mouseInSquare = true
 
 
 func _on_button_button_up():
-	mouseIn = false
+	mouseInSquare = false
 
 
 func _on_area_2d_body_entered(body):
-	$end.position = $plug.position
+	$square2.position = $square.position
+	print("yye")
 
+
+func _on_button_tri_button_down():
+	mouseInTriangle = true
+
+
+func _on_button_tri_button_up():
+	mouseInTriangle = false
+
+
+func _on_triangle_body_entered(body):
+	$triangle.position = $triangle.position
+	print("ejhrf")

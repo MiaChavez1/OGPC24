@@ -1,53 +1,42 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlduu41tovghp"]
+[gd_scene load_steps=14 format=3 uid="uid://dlduu41tovghp"]
 
 [ext_resource type="PackedScene" uid="uid://dtaw7itrwnc6x" path="res://characters/ben.tscn" id="1_5kgy0"]
 [ext_resource type="Script" path="res://scenes/bedroom.gd" id="1_x2olt"]
+[ext_resource type="Texture2D" uid="uid://dj08mhvx345cb" path="res://scenes/Untitled_Artwork-2.png" id="2_hl2sy"]
 [ext_resource type="PackedScene" uid="uid://cq5j4gjiqd00g" path="res://timers/clock_timer.tscn" id="2_ies4m"]
 [ext_resource type="PackedScene" uid="uid://c2c43lta2a3ll" path="res://scenes/pause_menu.tscn" id="2_p3sqa"]
 [ext_resource type="PackedScene" uid="uid://d3sfqwsvo7etk" path="res://inventory/inventory.tscn" id="2_vmx3m"]
+[ext_resource type="PackedScene" uid="uid://l410lyk3sxxs" path="res://characters/dustin.tscn" id="6_7yskl"]
 [ext_resource type="PackedScene" uid="uid://crycv4u8ohmdr" path="res://timers/progress_bar.tscn" id="6_xrqfn"]
 [ext_resource type="PackedScene" uid="uid://boncph2tspg8h" path="res://scenes/new_day_transition.tscn" id="7_kadti"]
 [ext_resource type="Texture2D" uid="uid://dxc06u6aoh5qa" path="res://sprites/broom.PNG" id="8_jx8lu"]
+[ext_resource type="Texture2D" uid="uid://blthrj8qx5trs" path="res://sprites/Elevator.png" id="10_s0nse"]
+[ext_resource type="PackedScene" uid="uid://bungpc7fvmn7d" path="res://dialogue/dialogue_player.tscn" id="11_01h1w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5tyc"]
-size = Vector2(86, 233)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwmo5"]
+size = Vector2(58, 78.75)
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_x2olt")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 408.0
+offset_bottom = 218.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+color = Color(1, 0.745098, 0.0705882, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 4375.0
+offset_bottom = 2275.0
+scale = Vector2(0.275, 0.285)
+texture = ExtResource("2_hl2sy")
+
 [node name="ClockTimer" parent="." instance=ExtResource("2_ies4m")]
 position = Vector2(1057, 102)
 
-[node name="Ben" parent="." instance=ExtResource("1_5kgy0")]
-position = Vector2(692, 369)
-scale = Vector2(0.2, 0.2)
-
-[node name="ProgressBar" parent="." instance=ExtResource("6_xrqfn")]
-scale = Vector2(0.5, 0.5)
-
-[node name="inventory" parent="." instance=ExtResource("2_vmx3m")]
-visible = false
-position = Vector2(350, 312)
-scale = Vector2(2, 2)
-
-[node name="NewDayTransition" parent="." instance=ExtResource("7_kadti")]
-
-[node name="door" type="Area2D" parent="."]
-position = Vector2(2.08165e-12, 1000)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
-position = Vector2(43, -750.5)
-shape = SubResource("RectangleShape2D_c5tyc")
-
-[node name="pauseMenu" parent="." instance=ExtResource("2_p3sqa")]
-visible = false
-offset_left = 500.0
-offset_top = 250.0
-offset_right = 500.0
-offset_bottom = 250.0
-
 [node name="broom" type="Area2D" parent="."]
-position = Vector2(981, 463)
+position = Vector2(396, 238)
 
 [node name="Sprite2D" type="Sprite2D" parent="broom"]
 scale = Vector2(0.1, 0.1)
@@ -56,5 +45,85 @@ texture = ExtResource("8_jx8lu")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="broom"]
 polygon = PackedVector2Array(-50, 88, -49, 88, -48, 88, -47, 88, -47, 89, -46, 90, -44, 90, -43, 92, -42, 95, -40, 98, -37, 99, -34, 98, -32, 98, -29, 97, -28, 98, -27, 98, -25, 99, -22, 100, -20, 99, -18, 98, -16, 99, -15, 99, -13, 98, -11, 99, -9, 99, -8, 98, -8, 96, -6, 96, -4, 97, 0, 95, 1, 95, 5, 96, 8, 95, 10, 91, 11, 90, 13, 89, 15, 86, 15, 81, 7, 48, 3, 33, 1, 31, 0, 30, 1, 28, 0, 27, 1, 25, -2, 16, -4, 11, -6, 9, -7, 7, -7, -4, -7, -14, -7, -30, -8, -36, -8, -46, -10, -55, -9, -65, -7, -70, -7, -75, -7, -85, -3, -92, 1, -103, 1, -110, 0, -114, -4, -116, -7, -117, -10, -116, -13, -115, -15, -112, -17, -106, -18, -98, -17, -92, -17, -82, -16, -74, -15, -70, -15, -62, -16, -47, -17, -35, -19, -23, -18, -15, -17, -10, -17, -6, -16, -2, -16, 3, -17, 6, -17, 7, -18, 8, -18, 9, -19, 10, -21, 13, -24, 20, -26, 26, -26, 28, -27, 30, -40, 58, -48, 78, -50, 83)
 
-[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
+[node name="dustin" parent="." instance=ExtResource("6_7yskl")]
+position = Vector2(1080, 300)
+
+[node name="Ben" parent="." instance=ExtResource("1_5kgy0")]
+position = Vector2(756, 451)
+
+[node name="door" type="Area2D" parent="."]
+position = Vector2(2.08165e-12, 1000)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="door"]
+position = Vector2(116.609, -709.281)
+scale = Vector2(0.856692, 0.78125)
+polygon = PackedVector2Array(149.868, 275.56, 145, -88, 62.3221, -104.6, 57.653, 215.4)
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(1, -245)
+polygon = PackedVector2Array(827, 339, 828, 264, 642, 157, 653, 224, 605, 254, 548, 219, 513, 227, 521, 304, 461, 343, 386, 287, 0, 524, 0, 6, 1204, 1, 1201, 506, 1126, 545, 962, 444, 967, 400, 945, 409)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(3, 283, -48, 284, -45, 688, 1239, 679, 1241, 260, 1205, 263, 1129, 296, 1134, 541, 955, 653, -1, 649)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(24, 549, 139, 474, 251, 543, 141, 619)
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = 25.0
+offset_top = -12.0
+offset_right = 4400.0
+offset_bottom = 2263.0
+scale = Vector2(0.275, 0.285)
+texture = ExtResource("10_s0nse")
+
+[node name="ProgressBar" parent="." instance=ExtResource("6_xrqfn")]
+scale = Vector2(0.5, 0.5)
+
+[node name="tasks" type="TextEdit" parent="."]
+offset_left = 8.0
+offset_top = 107.0
+offset_right = 366.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 40
+
+[node name="clock" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="clock"]
+position = Vector2(209.923, 18.5547)
+scale = Vector2(0.717905, 0.580313)
+polygon = PackedVector2Array(649, 171, 818, 260, 834, 106, 653, 27)
+
+[node name="inventory" parent="." instance=ExtResource("2_vmx3m")]
+visible = false
+position = Vector2(277, 77)
+scale = Vector2(0.7, 0.7)
+
+[node name="pauseMenu" parent="." instance=ExtResource("2_p3sqa")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 150.0
+offset_top = 300.0
+offset_right = 150.0
+offset_bottom = 300.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="DialoguePlayer" parent="." instance=ExtResource("11_01h1w")]
+
+[node name="NewDayTransition" parent="." instance=ExtResource("7_kadti")]
+
+[node name="note" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="note"]
+position = Vector2(1095, 409)
+shape = SubResource("RectangleShape2D_xwmo5")
+
 [connection signal="body_entered" from="broom" to="." method="_on_broom_body_entered"]
+[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
+[connection signal="body_entered" from="clock" to="." method="_on_clock_body_entered"]
+[connection signal="body_entered" from="note" to="." method="_on_note_body_entered"]

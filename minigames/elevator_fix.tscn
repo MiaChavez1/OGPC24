@@ -1,120 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://csfkkddrpbwvu"]
+[gd_scene load_steps=8 format=3 uid="uid://csfkkddrpbwvu"]
 
-[ext_resource type="Texture2D" uid="uid://cl7ns6yhs8ux1" path="res://icon.svg" id="1_atoct"]
 [ext_resource type="Script" path="res://minigames/elevator_fix.gd" id="1_rd564"]
-[ext_resource type="PackedScene" uid="uid://d26hvi7f2r18a" path="res://minigames/cabel.tscn" id="2_82uu6"]
+[ext_resource type="Texture2D" uid="uid://ceet7hl2j7n7r" path="res://sprites/IMG_2055.PNG" id="2_u24lv"]
+[ext_resource type="Texture2D" uid="uid://bv255063p5t2v" path="res://sprites/IMG_2056.PNG" id="3_7shvy"]
+[ext_resource type="Texture2D" uid="uid://canhientwa3fc" path="res://sprites/IMG_2057.PNG" id="4_4taal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5iy5"]
+size = Vector2(206, 203)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywqv"]
 size = Vector2(127.5, 126.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5iy5"]
-size = Vector2(128, 126)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mvb3l"]
 
 [node name="elevatorFix" type="Node2D"]
 script = ExtResource("1_rd564")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-38, 214)
+[node name="box" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_u24lv")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("1_atoct")
+[node name="square2" type="CharacterBody2D" parent="."]
+position = Vector2(35, 500)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0.25, -0.25)
-shape = SubResource("RectangleShape2D_0ywqv")
+[node name="Sprite2D" type="Sprite2D" parent="square2"]
+position = Vector2(74, -26)
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("3_7shvy")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(38, 256)
-node_a = NodePath("../StaticBody2D")
-node_b = NodePath("../cabel")
-
-[node name="cabel" parent="." instance=ExtResource("2_82uu6")]
-position = Vector2(37, 286)
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="."]
-position = Vector2(37, 317)
-node_a = NodePath("../cabel")
-node_b = NodePath("../cabel2")
-
-[node name="cabel2" parent="." instance=ExtResource("2_82uu6")]
-position = Vector2(37, 345)
-
-[node name="PinJoint2D3" type="PinJoint2D" parent="."]
-position = Vector2(37, 374)
-node_a = NodePath("../cabel2")
-node_b = NodePath("../cabel3")
-
-[node name="cabel3" parent="." instance=ExtResource("2_82uu6")]
-position = Vector2(37, 403)
-
-[node name="PinJoint2D4" type="PinJoint2D" parent="."]
-position = Vector2(38, 431)
-node_a = NodePath("../cabel3")
-node_b = NodePath("../cabel4")
-
-[node name="cabel4" parent="." instance=ExtResource("2_82uu6")]
-position = Vector2(37, 461)
-
-[node name="PinJoint2D5" type="PinJoint2D" parent="."]
-position = Vector2(37, 490)
-node_a = NodePath("../cabel4")
-node_b = NodePath("../cabel5")
-
-[node name="cabel5" parent="." instance=ExtResource("2_82uu6")]
-position = Vector2(37, 519)
-
-[node name="PinJoint2D6" type="PinJoint2D" parent="."]
-position = Vector2(36, 549)
-node_a = NodePath("../cabel5")
-node_b = NodePath("../cabel6")
-
-[node name="cabel6" parent="." instance=ExtResource("2_82uu6")]
-position = Vector2(37, 577)
-
-[node name="PinJoint2D7" type="PinJoint2D" parent="."]
-position = Vector2(38, 606)
-node_a = NodePath("../cabel6")
-node_b = NodePath("../cabel7")
-
-[node name="cabel7" parent="." instance=ExtResource("2_82uu6")]
-position = Vector2(37, 634)
-
-[node name="PinJoint2D8" type="PinJoint2D" parent="."]
-position = Vector2(38, 663)
-node_a = NodePath("../cabel7")
-node_b = NodePath("../cabel8")
-
-[node name="cabel8" parent="." instance=ExtResource("2_82uu6")]
-position = Vector2(37, 692)
-
-[node name="end" type="CharacterBody2D" parent="."]
-position = Vector2(400, 610)
-
-[node name="Sprite2D" type="Sprite2D" parent="end"]
-texture = ExtResource("1_atoct")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
-position = Vector2(0, -2.08165e-12)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="square2"]
+visible = false
+position = Vector2(31, -24.5)
 shape = SubResource("RectangleShape2D_g5iy5")
 
-[node name="Button" type="Button" parent="end"]
-offset_left = -67.0
-offset_top = -64.0
-offset_right = 65.0
-offset_bottom = 59.0
+[node name="Button" type="Button" parent="square2"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -33.0
+offset_top = -126.0
+offset_right = 178.0
+offset_bottom = 78.0
 
-[node name="plug" type="Area2D" parent="."]
-position = Vector2(600, 214)
+[node name="square" type="Area2D" parent="."]
+position = Vector2(412, 190)
 
-[node name="Sprite2D" type="Sprite2D" parent="plug"]
-texture = ExtResource("1_atoct")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plug"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="square"]
 position = Vector2(0.25, -0.25)
 shape = SubResource("RectangleShape2D_0ywqv")
 
-[connection signal="mouse_entered" from="end" to="." method="_on_end_mouse_entered"]
-[connection signal="mouse_exited" from="end" to="." method="_on_end_mouse_exited"]
-[connection signal="button_down" from="end/Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="end/Button" to="." method="_on_button_button_up"]
-[connection signal="body_entered" from="plug" to="." method="_on_area_2d_body_entered"]
+[node name="triangle2" type="CharacterBody2D" parent="."]
+position = Vector2(79, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="triangle2"]
+position = Vector2(31, -24)
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("4_4taal")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="triangle2"]
+position = Vector2(31, -24.5)
+polygon = PackedVector2Array(-110, 99.5, 118, 99.5, 0, -98.5)
+
+[node name="ButtonTri" type="Button" parent="triangle2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -49.0
+offset_top = -80.0
+offset_right = 104.0
+offset_bottom = 78.0
+
+[node name="triangle" type="Area2D" parent="."]
+position = Vector2(412, 190)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle"]
+position = Vector2(346, 3)
+shape = SubResource("RectangleShape2D_0ywqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="triangle"]
+texture = SubResource("CompressedTexture2D_mvb3l")
+
+[connection signal="mouse_entered" from="square2" to="." method="_on_end_mouse_entered"]
+[connection signal="mouse_exited" from="square2" to="." method="_on_end_mouse_exited"]
+[connection signal="button_down" from="square2/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="square2/Button" to="." method="_on_button_button_up"]
+[connection signal="body_entered" from="square" to="." method="_on_area_2d_body_entered"]
+[connection signal="button_down" from="triangle2/ButtonTri" to="." method="_on_button_tri_button_down"]
+[connection signal="button_up" from="triangle2/ButtonTri" to="." method="_on_button_tri_button_up"]
+[connection signal="body_entered" from="triangle" to="." method="_on_triangle_body_entered"]

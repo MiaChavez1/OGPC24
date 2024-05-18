@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbw6k4f03hwwq"]
+
+[ext_resource type="Script" path="res://dialogue/DialoguePlayerCowboy.gd" id="1_cjl57"]
+[ext_resource type="Texture2D" uid="uid://jgp7g4apq04s" path="res://sprites/IMG_0643.PNG" id="2_qmdc6"]
+
+[node name="DialoguePlayerCowboy" type="CanvasLayer"]
+script = ExtResource("1_cjl57")
+dialogue_file = "/Users/miachavez/Desktop/OGPC24-main 2/dialogue/DUSTINRUN.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(720, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -49.0
+offset_right = 360.0
+offset_bottom = 451.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qmdc6")
+
+[node name="message" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 227.0
+offset_right = 615.0
+offset_bottom = 326.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+
+[node name="name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 173.0
+offset_right = 265.0
+offset_bottom = 227.0
+theme_override_font_sizes/normal_font_size = 40

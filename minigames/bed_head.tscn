@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddxsq0ilqj24b"]
+
+[ext_resource type="Script" path="res://minigames/bed_head.gd" id="1_5u688"]
+[ext_resource type="Texture2D" uid="uid://bbcedqdbdtmc6" path="res://sprites/IMG_2086.PNG" id="2_pcpb6"]
+
+[node name="ben_head" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_5u688")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_pcpb6")
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-30, 47, -3, 45, 1, 80, 22, 74, 12, 45, 36, 37, 61, -6, 42, -24, 24, -68, -16, -80, -63, -10)

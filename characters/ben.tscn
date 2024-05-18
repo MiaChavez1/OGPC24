@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtaw7itrwnc6x"]
+[gd_scene load_steps=11 format=3 uid="uid://dtaw7itrwnc6x"]
 
 [ext_resource type="Script" path="res://characters/ben.gd" id="1_eh4f4"]
 [ext_resource type="Texture2D" uid="uid://v6w0yh0wy1pk" path="res://sprites/IMG_1929.PNG" id="2_yumi2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c67nhr1x8fbra" path="res://sprites/IMG_1932.PNG" id="5_6gees"]
 [ext_resource type="Texture2D" uid="uid://bt5v32ualw8pc" path="res://sprites/IMG_1933.PNG" id="6_mdset"]
 [ext_resource type="Texture2D" uid="uid://3kx657g77r7c" path="res://sprites/IMG_1934.PNG" id="7_fj1c8"]
+[ext_resource type="AudioStream" uid="uid://47cw6man8b60" path="res://music/sneaker-shoe-on-concrete-floor-medium-pace-1-www.FesliyanStudios.com.mp3" id="9_ihsce"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_macnt"]
 animations = [{
@@ -36,7 +37,7 @@ animations = [{
 }]
 
 [node name="Ben" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.15, 0.15)
 script = ExtResource("1_eh4f4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -56,3 +57,6 @@ flip_h = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(90, 13)
 polygon = PackedVector2Array(-131, 961, 267, 961, 370, 849, 376, 650, 416, 265, 284, -64, 395, -152, 408, -244, 332, -274, 330, -333, 301, -413, 303, -537, 269, -547, 158, -516, 153, -640, 0, -545, -91, -430, -129, -354, -192, -337, -156, -242, -181, -215, -145, -125, -91, -13, -246, 288, -288, 446, -352, 542, -429, 538, -503, 568, -410, 698, -291, 742, -179, 751, -196, 862)
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ihsce")

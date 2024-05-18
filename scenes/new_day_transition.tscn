@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://boncph2tspg8h"]
 
-[ext_resource type="Script" path="res://NewDayTransition.gd" id="1_pa0tw"]
+[ext_resource type="Script" path="res://scenes/NewDayTransition.gd" id="1_tcm6y"]
 
 [sub_resource type="Animation" id="Animation_ds6e4"]
 length = 0.001
@@ -92,7 +92,7 @@ _data = {
 }
 
 [node name="NewDayTransition" type="CanvasLayer"]
-script = ExtResource("1_pa0tw")
+script = ExtResource("1_tcm6y")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1218.0

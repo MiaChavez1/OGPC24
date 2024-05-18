@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://byon1w71ruo8"]
 
 [ext_resource type="Script" path="res://minigames/sweeping.gd" id="1_ev1e0"]
-[ext_resource type="PackedScene" uid="uid://c5fso4b8gjqv8" path="res://dust_particles.tscn" id="2_46ls6"]
+[ext_resource type="PackedScene" uid="uid://c5fso4b8gjqv8" path="res://minigames/dust_particles.tscn" id="2_46ls6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_21am5"]
 radius = 104.58

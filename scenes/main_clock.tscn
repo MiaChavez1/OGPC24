@@ -1,64 +1,55 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmrk5x8al2dfj"]
+[gd_scene load_steps=14 format=3 uid="uid://cmrk5x8al2dfj"]
 
 [ext_resource type="Script" path="res://scenes/main_clock.gd" id="1_0g1kd"]
 [ext_resource type="PackedScene" uid="uid://dtaw7itrwnc6x" path="res://characters/ben.tscn" id="1_wf3dw"]
+[ext_resource type="Texture2D" uid="uid://se40xqnw76s0" path="res://scenes/Elevator-2.png" id="2_in4at"]
 [ext_resource type="PackedScene" uid="uid://cq5j4gjiqd00g" path="res://timers/clock_timer.tscn" id="2_wmu24"]
 [ext_resource type="PackedScene" uid="uid://c2c43lta2a3ll" path="res://scenes/pause_menu.tscn" id="3_yg1eu"]
 [ext_resource type="PackedScene" uid="uid://crycv4u8ohmdr" path="res://timers/progress_bar.tscn" id="4_3jghg"]
 [ext_resource type="PackedScene" uid="uid://d3sfqwsvo7etk" path="res://inventory/inventory.tscn" id="5_5in5t"]
 [ext_resource type="PackedScene" uid="uid://boncph2tspg8h" path="res://scenes/new_day_transition.tscn" id="6_3m6ed"]
 [ext_resource type="Texture2D" uid="uid://dhr6830wmefb6" path="res://sprites/IMG_0500.PNG" id="8_7gnod"]
+[ext_resource type="Texture2D" uid="uid://blthrj8qx5trs" path="res://sprites/Elevator.png" id="10_hcp7w"]
+[ext_resource type="Texture2D" uid="uid://bs7rjghvy8haq" path="res://sprites/Cactus.png" id="11_wwv53"]
+[ext_resource type="PackedScene" uid="uid://cbw6k4f03hwwq" path="res://dialogue/dialogue_player_cowboy.tscn" id="12_nxin6"]
+[ext_resource type="Texture2D" uid="uid://u35x1ye0tx8q" path="res://sprites/IMG_0627.PNG" id="12_x6xgf"]
 
 [node name="mainClock" type="Node2D"]
 script = ExtResource("1_0g1kd")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 408.0
+offset_bottom = 218.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+color = Color(1, 0.745098, 0.0705882, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 4375.0
+offset_bottom = 2275.0
+scale = Vector2(0.275, 0.285)
+texture = ExtResource("2_in4at")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(676, 280)
+scale = Vector2(0.0711805, 0.0665123)
+texture = ExtResource("12_x6xgf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(629, 236, 615, 274, 622, 307, 635, 324, 668, 338, 699, 327, 739, 309, 749, 281, 732, 253, 700, 228, 652, 226)
+
 [node name="Ben" parent="." instance=ExtResource("1_wf3dw")]
-<<<<<<< Updated upstream
+position = Vector2(350, 250)
 scale = Vector2(0.2, 0.2)
 
 [node name="ClockTimer" parent="." instance=ExtResource("2_wmu24")]
 position = Vector2(1057, 102)
-=======
-
-[node name="ClockTimer" parent="." instance=ExtResource("2_wmu24")]
-position = Vector2(2618, 175)
-scale = Vector2(0.2, 0.2)
->>>>>>> Stashed changes
-
-[node name="pauseMenu" parent="." instance=ExtResource("3_yg1eu")]
-visible = false
-anchors_preset = -1
-offset_left = 2250.0
-offset_top = 1500.0
-offset_right = 2250.0
-offset_bottom = 1500.0
-scale = Vector2(6, 6)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="ProgressBar" parent="." instance=ExtResource("4_3jghg")]
-<<<<<<< Updated upstream
-scale = Vector2(0.5, 0.5)
-=======
->>>>>>> Stashed changes
-
-[node name="inventory" parent="." instance=ExtResource("5_5in5t")]
-visible = false
-position = Vector2(350, 312)
-scale = Vector2(2, 2)
-
-[node name="NewDayTransition" parent="." instance=ExtResource("6_3m6ed")]
-<<<<<<< Updated upstream
-visible = false
 
 [node name="hat" type="Area2D" parent="."]
-position = Vector2(625, 501)
-scale = Vector2(0.4, 0.4)
-=======
-
-[node name="hat" type="Area2D" parent="."]
-position = Vector2(2000, 1000)
->>>>>>> Stashed changes
+position = Vector2(625, 600)
+scale = Vector2(0.3, 0.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="hat"]
 scale = Vector2(0.663, 0.663)
@@ -69,4 +60,75 @@ position = Vector2(-0.692751, 3.58742)
 scale = Vector2(2.18273, 2.24966)
 polygon = PackedVector2Array(-101, -47, -113, -27, -119, -6, -119, 10, -116, 24, -107, 31, -85, 35, -47, 27, -1, -3, 39, -25, 63, -27, 88, -26, 115, -25, 133, -32, 142, -43, 143, -54, 139, -63, 107, -77, 87, -88, 80, -121, 67, -133, 48, -133, -20, -118, -39, -102, -48, -87, -67, -79)
 
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(24, 549, 139, 474, 251, 543, 141, 619)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(0, -299)
+polygon = PackedVector2Array(0, 524, 274, 357, 352, 401, 589, 260, 585, 171, 621, 146, 1202, 499, 1202, 0, 0, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(-1, 530, 1, 650, 960, 650, 1202, 499, 1225, 500, 1225, 665, -29, 669, -30, 535)
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_right = 4375.0
+offset_bottom = 2275.0
+scale = Vector2(0.275, 0.285)
+texture = ExtResource("10_hcp7w")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 4375.0
+offset_bottom = 2275.0
+scale = Vector2(0.275, 0.285)
+texture = ExtResource("11_wwv53")
+
+[node name="ProgressBar" parent="." instance=ExtResource("4_3jghg")]
+scale = Vector2(0.5, 0.5)
+
+[node name="tasks" type="TextEdit" parent="."]
+offset_left = 8.0
+offset_top = 107.0
+offset_right = 366.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 40
+
+[node name="target" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="target"]
+position = Vector2(-6, 35)
+polygon = PackedVector2Array(810, 226, 967, 316, 974, 132, 822, 69)
+
+[node name="pauseMenu" parent="." instance=ExtResource("3_yg1eu")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 150.0
+offset_top = 300.0
+offset_right = 150.0
+offset_bottom = 300.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="inventory" parent="." instance=ExtResource("5_5in5t")]
+visible = false
+position = Vector2(277, 77)
+scale = Vector2(0.7, 0.7)
+
+[node name="door" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="door"]
+position = Vector2(101, 306)
+scale = Vector2(0.856692, 0.78125)
+polygon = PackedVector2Array(149.868, 275.56, 145, -88, 64.2004, -69.1201, 57.653, 215.4)
+
+[node name="DialoguePlayerCowboy" parent="." instance=ExtResource("12_nxin6")]
+
+[node name="NewDayTransition" parent="." instance=ExtResource("6_3m6ed")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="hat" to="." method="_on_hat_body_entered"]
+[connection signal="body_entered" from="target" to="." method="_on_target_body_entered"]
+[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbd5lditj68lp"]
+[gd_scene load_steps=7 format=3 uid="uid://cbd5lditj68lp"]
 
 [ext_resource type="Script" path="res://minigames/tumbleweedRun.gd" id="1_inigf"]
 [ext_resource type="PackedScene" uid="uid://dng1aiytmmjom" path="res://minigames/tumbleweed.tscn" id="2_q073v"]
 [ext_resource type="PackedScene" uid="uid://dtaw7itrwnc6x" path="res://characters/ben.tscn" id="3_pe8q0"]
+[ext_resource type="Texture2D" uid="uid://se40xqnw76s0" path="res://scenes/Elevator-2.png" id="4_rosry"]
 
 [sub_resource type="Curve2D" id="Curve2D_43r3a"]
 _data = {
@@ -18,8 +19,15 @@ height = 1390.0
 script = ExtResource("1_inigf")
 tumble_scene = ExtResource("2_q073v")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -4216.0
+offset_top = -3239.0
+offset_right = 4317.0
+offset_bottom = 1561.0
+texture = ExtResource("4_rosry")
+
 [node name="time" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 15.0
 one_shot = true
 autostart = true
 
@@ -33,8 +41,7 @@ curve = SubResource("Curve2D_43r3a")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 
 [node name="Ben" parent="." instance=ExtResource("3_pe8q0")]
-position = Vector2(-11, 5)
-scale = Vector2(0.1, 0.1)
+position = Vector2(500, 300)
 
 [node name="Area2D" type="Area2D" parent="Ben"]
 

@@ -9,7 +9,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#keeps bend in bound
+	if $Ben.position.x <=50:
+		$Ben.position.x +=10
+	elif $Ben.position.x >=1125:
+		$Ben.position.x -=10
+	if $Ben.position.y >=515:
+		$Ben.position.y -=10
+	elif $Ben.position.y <= 75:
+		$Ben.position.y +=10
 
 
 func _on_tumbleweeds_timeout():
@@ -32,8 +40,11 @@ func _on_tumbleweeds_timeout():
 	
 	add_child(tumbleweed)
 
-
+## when time runs out 
 func _on_time_timeout():
+	DayTimer.progress +=25
+	DayTimer.task = "Fix Elevator"
+	DayTimer.complete += 1
 	get_tree().change_scene_to_file("res://scenes/main_clock.tscn")
 
 

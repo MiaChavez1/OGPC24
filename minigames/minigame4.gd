@@ -3,7 +3,7 @@ extends Node2D
 var handHour = 0
 var handMinute =0
 var hour = randi_range(1, 12)
-var minute=randi_range(00,59)
+var minute=randi_range(06,54)
 var hourTrue = false
 var minuteTrue = true
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +31,7 @@ func _process(delta):
 	if hourTrue && !minuteTrue:
 		await get_tree().create_timer(2.0).timeout
 		DayTimer.task = "Fix Elevator"
-		DayTimer.progress +=20
+		DayTimer.progress +=25
 
 		DayTimer.complete += 1
 		get_tree().change_scene_to_file("res://scenes/bedroom.tscn")

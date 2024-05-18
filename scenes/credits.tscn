@@ -81,4 +81,16 @@ grow_vertical = 0
 size_flags_vertical = 8
 text = "exit"
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 505.0
+offset_right = 1070.0
+offset_bottom = 605.0
+text = "Music by: Bensound.com/free-music-for-videos License code: Q8DE0P4YEN0RU3P1
+Royalty Free Music: Bensound.com License code: 9YENO2DO5GO58RJOMusic by: Bensound.com/royalty-free-music License code: OK0D8FKH6JJBSYNXMusic by: https://www.bensound.com License code: 2HIUXBRDKJYBQGWY
+Music by Bensound.com/royalty-free-music License code: UIUHJ65EMYSRRG1N
+Music by https://www.bensound.com/free-music-for-videos License code: PHQWPOIHLQM6CSIH
+free sound effects from https://www.fesliyanstudios.com https://www.fesliyanstudios.com/play-mp3/819 https://www.fesliyanstudios.com/play-mp3/2902"
+
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

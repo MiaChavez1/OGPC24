@@ -27,7 +27,10 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	if $slider.value >= 70 && $slider.value <= 80:
-		print("yay")
+	if $slider.value >= 50 && $slider.value <= 60:
+		DayTimer.progress +=25
+		DayTimer.task = "Fix Elevator"
+		DayTimer.complete += 1
+		get_tree().change_scene_to_file("res://scenes/main_clock.tscn")
 	else:
 		speed=10

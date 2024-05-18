@@ -1,15 +1,18 @@
 extends Control
 
+# options for window
 const windowOptions: Array[String] = ["Full Screen", "Window ", "Borderless Full", "Borderless Window"]
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	add_window_mode_items()
 	$HBoxContainer/OptionButton.item_selected.connect(on_window_mode_selected)
 	
+# adds options to dropbox
 func add_window_mode_items()-> void:
 	for windowMode in windowOptions:
 		$HBoxContainer/OptionButton.add_item(windowMode)
-		
+
+#Changes window based on what user picked
 func on_window_mode_selected(index:int)-> void:
 	match index:
 		0:

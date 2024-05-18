@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://l410lyk3sxxs"]
+
+[ext_resource type="Texture2D" uid="uid://0nelhykfx5gn" path="res://characters/IMG_0572.PNG" id="1_w8tb4"]
+
+[node name="dustin" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_w8tb4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-84, 24, -74, 43, -59, 52, -36, 55, -15, 58, -1, 56, 34, 51, 62, 51, 70, 48, 81, 39, 82, 36, 80, 30, 74, 26, 70, 24, 64, 6, 56, -22, 52, -26, 42, -29, 30, -29, 20, -25, 14, -24, 7, -26, -7, -22, -12, -35, -5, -42, -4, -49, -8, -54, -16, -54, -29, -45, -35, -35, -39, -21, -38, -15, -52, -3, -57, 11, -80, 11, -84, 11, -87, 19)

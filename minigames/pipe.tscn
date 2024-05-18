@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd0k06qxa6bxs"]
+
+[ext_resource type="Script" path="res://minigames/Pipe.gd" id="1_auj7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07mca"]
+size = Vector2(74, 340.75)
+
+[node name="Pipe" type="Area2D" groups=["pipes"]]
+script = ExtResource("1_auj7f")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1632.0
+offset_top = -333.0
+offset_right = -1559.0
+offset_bottom = 301.0
+color = Color(0.886275, 0.592157, 0.819608, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1594, -161.625)
+shape = SubResource("RectangleShape2D_07mca")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -1632.0
+offset_top = -1085.0
+offset_right = -1559.0
+offset_bottom = -676.0
+color = Color(0.886275, 0.592157, 0.819608, 1)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-1594, -854.75)
+shape = SubResource("RectangleShape2D_07mca")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,13 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgoyi5t2v1ljk"]
+[gd_scene load_steps=9 format=3 uid="uid://bgoyi5t2v1ljk"]
 
 [ext_resource type="Script" path="res://minigames/sweeping.gd" id="1_kj3tw"]
-[ext_resource type="PackedScene" uid="uid://c5fso4b8gjqv8" path="res://dust_particles.tscn" id="2_fvobr"]
+[ext_resource type="PackedScene" uid="uid://c5fso4b8gjqv8" path="res://minigames/dust_particles.tscn" id="2_fvobr"]
+[ext_resource type="Texture2D" uid="uid://dxc06u6aoh5qa" path="res://sprites/broom.PNG" id="3_7pudf"]
+[ext_resource type="Texture2D" uid="uid://0nelhykfx5gn" path="res://characters/IMG_0572.PNG" id="4_og2at"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_21am5"]
-radius = 104.58
+radius = 210.002
+
+[sub_resource type="Animation" id="Animation_c5c34"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dustin:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e82yh"]
+resource_name = "dead"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dustin:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7416"]
+_data = {
+"RESET": SubResource("Animation_c5c34"),
+"dead": SubResource("Animation_e82yh")
+}
 
 [node name="Sweeping" type="Node2D"]
 script = ExtResource("1_kj3tw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1260.0
+offset_bottom = 723.0
+color = Color(0.921569, 0.690196, 0.388235, 0.878431)
 
 [node name="dust1" type="Area2D" parent="."]
 
@@ -19,10 +63,10 @@ shape = SubResource("CircleShape2D_21am5")
 
 [node name="Button" type="Button" parent="dust1"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -73.0
-offset_top = -19.0
-offset_right = 109.0
-offset_bottom = 121.0
+offset_left = -199.0
+offset_top = -163.0
+offset_right = 218.0
+offset_bottom = 233.0
 
 [node name="dust2" type="Area2D" parent="."]
 
@@ -34,10 +78,10 @@ shape = SubResource("CircleShape2D_21am5")
 
 [node name="Button2" type="Button" parent="dust2"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -73.0
-offset_top = -19.0
-offset_right = 109.0
-offset_bottom = 121.0
+offset_left = -212.0
+offset_top = -155.0
+offset_right = 226.0
+offset_bottom = 275.0
 
 [node name="dust3" type="Area2D" parent="."]
 
@@ -49,10 +93,10 @@ shape = SubResource("CircleShape2D_21am5")
 
 [node name="Button3" type="Button" parent="dust3"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -73.0
-offset_top = -19.0
-offset_right = 109.0
-offset_bottom = 121.0
+offset_left = -205.0
+offset_top = -155.0
+offset_right = 238.0
+offset_bottom = 275.0
 
 [node name="dust4" type="Area2D" parent="."]
 
@@ -64,10 +108,10 @@ shape = SubResource("CircleShape2D_21am5")
 
 [node name="Button4" type="Button" parent="dust4"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -73.0
-offset_top = -19.0
-offset_right = 109.0
-offset_bottom = 121.0
+offset_left = -202.0
+offset_top = -156.0
+offset_right = 236.0
+offset_bottom = 229.0
 
 [node name="dust5" type="Area2D" parent="."]
 
@@ -79,10 +123,10 @@ shape = SubResource("CircleShape2D_21am5")
 
 [node name="Button5" type="Button" parent="dust5"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -73.0
-offset_top = -19.0
-offset_right = 109.0
-offset_bottom = 121.0
+offset_left = -202.0
+offset_top = -161.0
+offset_right = 226.0
+offset_bottom = 245.0
 
 [node name="dust6" type="Area2D" parent="."]
 
@@ -94,10 +138,27 @@ shape = SubResource("CircleShape2D_21am5")
 
 [node name="Button6" type="Button" parent="dust6"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -73.0
-offset_top = -19.0
-offset_right = 109.0
-offset_bottom = 121.0
+offset_left = -216.0
+offset_top = -146.0
+offset_right = 229.0
+offset_bottom = 227.0
+
+[node name="broom" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_7pudf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_q7416")
+}
+
+[node name="dustin" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.0714285)
+position = Vector2(694, 328)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_og2at")
 
 [connection signal="button_down" from="dust1/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="dust2/Button2" to="." method="_on_button_2_button_down"]
